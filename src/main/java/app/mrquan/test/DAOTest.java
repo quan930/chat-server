@@ -37,14 +37,15 @@ public class DAOTest {
 //        System.out.println(messages);
 
 
-        Message message = new Message();
-        message.setUser("0001");
-        message.setFunction("退出");
-        String json = JSON.messageToJson(message);
-        System.out.println(json);
-        Message message1 = JSON.jsonToMessage(json);
-        System.out.println(message1);
+//        Message message = new Message();
+//        message.setUser("0001");
+//        message.setFunction("退出");
+//        String json = JSON.messageToJson(message);
+//        System.out.println(json);
+//        Message message1 = JSON.jsonToMessage(json);
+//        System.out.println(message1);
 
-
+        User user = DAOFactory.getIUserDAOInstance().selectByID("0000");
+        System.out.println(user);
     }
 }

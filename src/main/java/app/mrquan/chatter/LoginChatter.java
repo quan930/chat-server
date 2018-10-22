@@ -5,6 +5,7 @@ import app.mrquan.pojo.Instruct;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 
 public class LoginChatter implements Runnable {
@@ -35,6 +36,8 @@ public class LoginChatter implements Runnable {
             writer.write(json);
             writer.newLine();
             writer.flush();
+        } catch (SocketException e){
+            System.out.println("登陆套节字关闭");
         } catch (IOException e) {
             e.printStackTrace();
         }finally {

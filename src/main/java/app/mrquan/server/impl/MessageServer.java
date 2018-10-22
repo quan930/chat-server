@@ -3,11 +3,15 @@ package app.mrquan.server.impl;
 import app.mrquan.chatter.LoginChatter;
 import app.mrquan.chatter.MessageChatter;
 import app.mrquan.control.ServerRoom;
+import app.mrquan.factory.DAOFactory;
 import app.mrquan.server.IServer;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -15,16 +19,14 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 public class MessageServer implements IServer {
     /**
-     * 线程服务器
+     * 消息服务器
      */
-    private volatile boolean isRunning = true;
+    private ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+    private List<Socket> clients = new ArrayList<>();
     private Integer port;
     private Integer loginPort;
     private String loginAddress;
     private ServerSocket serverSocket;
-    private ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
-
-
 
     public MessageServer(ServerRoom serverRoom){
         this.port = serverRoom.getMessagePort();
@@ -33,7 +35,20 @@ public class MessageServer implements IServer {
     }
 
     public void finish() {
-        isRunning = false;
+        try {
+            serverSocket.close();
+            close();
+            System.out.println();
+            cachedThreadPool.shutdown();
+            /**
+             * 消息存取
+             */
+//            DAOFactory.getIMessageDAOInstance().release();
+
+            System.out.println("消息服务器结束");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public int getThreadCount() {
@@ -47,12 +62,29 @@ public class MessageServer implements IServer {
             }
             serverSocket = new ServerSocket(port);
             Socket client;
-            while (!serverSocket.isClosed()){
+            while (true){
                 client = serverSocket.accept();
+                add(client);
                 cachedThreadPool.execute(new MessageChatter(client,loginAddress,loginPort));
             }
+        }catch (SocketException ignored){
+            System.out.println("关闭消息服务器");
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void add(Socket client){
+        synchronized (this){
+            clients.add(client);
+        }
+    }
+
+    private void close() throws IOException {
+        synchronized (this){
+            for (Socket client : clients) {
+                client.close();
+            }
         }
     }
 }

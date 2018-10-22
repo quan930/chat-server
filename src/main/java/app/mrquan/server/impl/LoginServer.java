@@ -7,7 +7,9 @@ import app.mrquan.server.IServer;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.BlockingQueue;
+import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -16,11 +18,12 @@ public class LoginServer implements IServer {
     /**
      * 登录服务器
      */
+    private ExecutorService fixedThreadPool = Executors.newFixedThreadPool(10);
+    private List<Socket> clients = new ArrayList<>();
     private Integer port;//登录服务端口号
     private ServerSocket serverSocket;
     private Integer messagePort;
     private String messageAddress;
-    private ExecutorService fixedThreadPool = Executors.newFixedThreadPool(10);
 
     public LoginServer(ServerRoom serverRoom){
         this.port = serverRoom.getLoginPort();
@@ -29,15 +32,18 @@ public class LoginServer implements IServer {
     }
 
     public void finish() {
-        /**
-         * 结束方法有问题
-         */
         try {
-//            fixedThreadPool.shutdown();
             serverSocket.close();
+            close();
+            fixedThreadPool.shutdown();
+            System.out.println("登陆服务器结束");
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public int getThreadCount() {
+        return ((ThreadPoolExecutor)fixedThreadPool).getActiveCount();//线程活跃数
     }
 
     public void run() {
@@ -47,16 +53,29 @@ public class LoginServer implements IServer {
             }
             serverSocket = new ServerSocket(port);
             Socket client;
-            while (!serverSocket.isClosed()){
+            while (true){
                 client = serverSocket.accept();
+                add(client);
                 fixedThreadPool.execute(new LoginChatter(client,messageAddress,messagePort));
             }
-        } catch (IOException e) {
+        }catch (SocketException ignored){
+            System.out.println("关闭登陆服务器");
+        }catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public int getThreadCount() {
-        return ((ThreadPoolExecutor)fixedThreadPool).getActiveCount();//线程活跃数
+    private void add(Socket client){
+        synchronized (this){
+            clients.add(client);
+        }
+    }
+
+    private void close() throws IOException {
+        synchronized (this){
+            for (Socket client : clients) {
+                client.close();
+            }
+        }
     }
 }

@@ -31,8 +31,8 @@ public class ServerRoom {
         new Thread(loginServer).start();
         messageServer = Factory.getIServerInstance(Factory.SERVER_MESSAGE,this);
         new Thread(messageServer).start();
-        adminServer = Factory.getIServerInstance(Factory.SERVER_ADMIN,this);
-        new Thread(adminServer).start();
+//        adminServer = Factory.getIServerInstance(Factory.SERVER_ADMIN,this);
+//        new Thread(adminServer).start();
     }
 
     public Integer getLoginPort() {

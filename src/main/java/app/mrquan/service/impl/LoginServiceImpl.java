@@ -6,9 +6,6 @@ import app.mrquan.pojo.Instruct;
 import app.mrquan.pojo.User;
 import app.mrquan.service.ILoginService;
 import app.mrquan.util.JSON;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 

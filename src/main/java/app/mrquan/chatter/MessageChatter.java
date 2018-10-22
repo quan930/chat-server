@@ -6,12 +6,14 @@ import app.mrquan.util.JSON;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class MessageChatter implements Runnable{
+    volatile private boolean isRunning = true;
     private Socket client;
     private BufferedReader reader;
     private BufferedWriter writer;
@@ -52,17 +54,21 @@ public class MessageChatter implements Runnable{
                     break;
                 }
             }
-        } catch (IOException e) {
+        }catch (SocketException e){
+            System.out.println("消息套节字关闭");
+            isRunning = false;
             e.printStackTrace();
-        }finally {
-            try {
-                writer.close();
-                reader.close();
-                client.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        }catch (IOException e) {
+            e.printStackTrace();
         }
+//        finally {
+//            try {
+//                reader.close();
+//                client.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     private void writerMessage(){
@@ -77,8 +83,23 @@ public class MessageChatter implements Runnable{
                             writer.write(s);
                             writer.newLine();
                             writer.flush();
-                        } catch (IOException e) {
+                        }catch (SocketException e){
+                            e.printStackTrace();
+                            System.out.println("套节字关闭");
                             timer.cancel();
+                            try {
+                                writer.close();
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                            e.printStackTrace();
+                        }catch (IOException e) {
+                            timer.cancel();
+                            try {
+                                writer.close();
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
                             e.printStackTrace();
                         }
                     }

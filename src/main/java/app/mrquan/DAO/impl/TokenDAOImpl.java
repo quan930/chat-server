@@ -32,7 +32,6 @@ public class TokenDAOImpl implements ITokenDAO {
         if (tokenQueue.contains(token)){
             return 1;
         }
-//        tokenQueue.size();
         return 0;
     }
 }

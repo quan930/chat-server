@@ -25,6 +25,10 @@ public class UserDAOImpl implements IUserDAO {
                 user = new User();
                 user.setId(resultSet.getString(1));//id
                 user.setPassword(resultSet.getString(2));//password
+                resultSet.getString(3);//admin
+                if (!resultSet.wasNull()){
+                    user.setAdmin(Boolean.TRUE);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
