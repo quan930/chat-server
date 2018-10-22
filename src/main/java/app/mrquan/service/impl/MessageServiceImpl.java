@@ -47,9 +47,6 @@ public class MessageServiceImpl implements IMessageService {
         switch (message.getFunction()){
             case "exit":
                 DAOFactory.getITokenDAOInstance().remove(message.getUser());
-//                if (DAOFactory.getITokenDAOInstance().remove(message.getUser())==1){
-//                    remove=-1;
-//                }
                 remove = 0;
                 break;
             case "chat":

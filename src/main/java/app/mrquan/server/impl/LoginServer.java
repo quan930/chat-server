@@ -1,6 +1,6 @@
 package app.mrquan.server.impl;
 
-import app.mrquan.chatter.LoginChatter;
+import app.mrquan.server.chatter.LoginChatter;
 import app.mrquan.control.ServerRoom;
 import app.mrquan.server.IServer;
 
@@ -36,6 +36,9 @@ public class LoginServer implements IServer {
             serverSocket.close();
             close();
             fixedThreadPool.shutdown();
+            /**
+             * 处理缓存消息
+             */
             System.out.println("登陆服务器结束");
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,7 +62,7 @@ public class LoginServer implements IServer {
                 fixedThreadPool.execute(new LoginChatter(client,messageAddress,messagePort));
             }
         }catch (SocketException ignored){
-            System.out.println("关闭登陆服务器");
+//            System.out.println("关闭登陆服务器");
         }catch (IOException e) {
             e.printStackTrace();
         }

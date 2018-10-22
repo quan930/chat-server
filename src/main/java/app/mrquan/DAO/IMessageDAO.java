@@ -19,12 +19,4 @@ public interface IMessageDAO {
      * @return 有数据返回List 没有返回null
      */
     List<Message> get(String id);
-
-    /**
-     * 释放锁
-     * @return 返回map数据
-     */
-    void release();
-//    Map<String,List<Message>> release();
-
 }

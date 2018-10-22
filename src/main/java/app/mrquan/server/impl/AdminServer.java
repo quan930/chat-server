@@ -3,7 +3,6 @@ package app.mrquan.server.impl;
 import app.mrquan.control.ServerRoom;
 import app.mrquan.server.IServer;
 
-import java.util.concurrent.ExecutorService;
 
 public class AdminServer implements IServer {
     private volatile boolean isRunning = true;

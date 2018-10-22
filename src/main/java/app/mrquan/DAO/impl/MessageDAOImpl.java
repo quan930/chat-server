@@ -9,7 +9,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class MessageDAOImpl implements IMessageDAO {
     static private ConcurrentHashMap<String, CopyOnWriteArrayList<Message>> map = new ConcurrentHashMap<>();
-    public int put(Message message) {//需要锁？
+    public int put(Message message) {
         if (!map.containsKey(message.getSendObject())){//不包含
             map.put(message.getSendObject(),new CopyOnWriteArrayList<Message>());
         }
@@ -17,11 +17,8 @@ public class MessageDAOImpl implements IMessageDAO {
     }
 
     public List<Message> get(String id) {
+        if (!map.containsKey(id))
+            return null;
         return map.remove(id);
-    }
-
-    @Override
-    public void release() {
-        return;
     }
 }

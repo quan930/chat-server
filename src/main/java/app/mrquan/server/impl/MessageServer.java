@@ -1,10 +1,10 @@
 package app.mrquan.server.impl;
 
-import app.mrquan.chatter.LoginChatter;
-import app.mrquan.chatter.MessageChatter;
-import app.mrquan.control.ServerRoom;
 import app.mrquan.factory.DAOFactory;
+import app.mrquan.server.chatter.MessageChatter;
+import app.mrquan.control.ServerRoom;
 import app.mrquan.server.IServer;
+import app.mrquan.server.chatter.MessageWriterChatter;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -12,7 +12,6 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -38,13 +37,10 @@ public class MessageServer implements IServer {
         try {
             serverSocket.close();
             close();
-            System.out.println();
             cachedThreadPool.shutdown();
             /**
-             * 消息存取
+             * 处理缓存消息
              */
-//            DAOFactory.getIMessageDAOInstance().release();
-
             System.out.println("消息服务器结束");
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,10 +61,10 @@ public class MessageServer implements IServer {
             while (true){
                 client = serverSocket.accept();
                 add(client);
-                cachedThreadPool.execute(new MessageChatter(client,loginAddress,loginPort));
+                cachedThreadPool.execute(new MessageChatter(client,loginAddress,loginPort,cachedThreadPool));
             }
         }catch (SocketException ignored){
-            System.out.println("关闭消息服务器");
+//            System.out.println("关闭消息服务器");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,4 +1,4 @@
-package app.mrquan.chatter;
+package app.mrquan.server.chatter;
 
 import app.mrquan.factory.ServiceFactory;
 import app.mrquan.pojo.Instruct;
@@ -37,7 +37,7 @@ public class LoginChatter implements Runnable {
             writer.newLine();
             writer.flush();
         } catch (SocketException e){
-            System.out.println("登陆套节字关闭");
+//            System.out.println("登陆套节字关闭");
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
