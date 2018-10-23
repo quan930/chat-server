@@ -34,4 +34,9 @@ public class TokenDAOImpl implements ITokenDAO {
         }
         return 0;
     }
+
+    @Override
+    public int size() {
+        return tokenQueue.size();
+    }
 }

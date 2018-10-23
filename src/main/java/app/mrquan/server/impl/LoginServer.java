@@ -23,11 +23,11 @@ public class LoginServer implements IServer {
     private Integer port;//登录服务端口号
     private ServerSocket serverSocket;
     private Integer messagePort;
-    private String messageAddress;
+    private String address;
 
     public LoginServer(ServerRoom serverRoom){
         this.port = serverRoom.getLoginPort();
-        this.messageAddress = serverRoom.getMessageAddress();
+        this.address = serverRoom.getAddress();
         this.messagePort = serverRoom.getMessagePort();
     }
 
@@ -59,7 +59,7 @@ public class LoginServer implements IServer {
             while (true){
                 client = serverSocket.accept();
                 add(client);
-                fixedThreadPool.execute(new LoginChatter(client,messageAddress,messagePort));
+                fixedThreadPool.execute(new LoginChatter(client,address,messagePort));
             }
         }catch (SocketException ignored){
 //            System.out.println("关闭登陆服务器");

@@ -13,11 +13,11 @@ public class LoginChatter implements Runnable {
     private BufferedReader reader;
     private BufferedWriter writer;
     private Integer messagePort;
-    private String messageAddress;
+    private String address;
 
-    public LoginChatter(Socket client,String messageAddress,Integer messagePort){
+    public LoginChatter(Socket client,String address,Integer messagePort){
         this.client = client;
-        this.messageAddress = messageAddress;
+        this.address = address;
         this.messagePort = messagePort;
     }
     public void run() {
@@ -32,7 +32,7 @@ public class LoginChatter implements Runnable {
              * 判断用户存在 密码是否正确 判断是否已经登陆
              * 将 instruct 类转为 json数据
              */
-            String json = ServiceFactory.getILoginServiceInstance().login(jsonLogin,messageAddress,messagePort);
+            String json = ServiceFactory.getILoginServiceInstance().login(jsonLogin,address,messagePort);
             writer.write(json);
             writer.newLine();
             writer.flush();

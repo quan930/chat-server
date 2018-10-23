@@ -21,4 +21,10 @@ public interface ITokenDAO {
      * @return 存在返回1 否则返回0
      */
     int contains(String token);
+
+    /**
+     * 查询令牌数量
+     * @return 返回令牌数量 没有返回0
+     */
+    int size();
 }

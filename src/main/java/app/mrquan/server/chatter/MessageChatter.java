@@ -17,12 +17,12 @@ public class MessageChatter implements Runnable{
     private BufferedReader reader;
     private BufferedWriter writer;
     private Integer loginPort;
-    private String loginAddress;
+    private String address;
     private String user;
 
-    public MessageChatter(Socket client, String loginAddress, Integer loginPort,ExecutorService cachedThreadPool){
+    public MessageChatter(Socket client, String address, Integer loginPort,ExecutorService cachedThreadPool){
         this.client = client;
-        this.loginAddress = loginAddress;
+        this.address = address;
         this.loginPort = loginPort;
         this.cachedThreadPool = cachedThreadPool;
     }
@@ -32,7 +32,7 @@ public class MessageChatter implements Runnable{
             reader = new BufferedReader(new InputStreamReader(client.getInputStream(), StandardCharsets.UTF_8));
             writer = new BufferedWriter(new OutputStreamWriter(client.getOutputStream(),StandardCharsets.UTF_8));
             String json = reader.readLine();
-            String result = ServiceFactory.getIMessageServiceInstance().login(json,loginAddress,loginPort);
+            String result = ServiceFactory.getIMessageServiceInstance().login(json,address,loginPort);
             if (result==null){
                 closeAll();
                 return;

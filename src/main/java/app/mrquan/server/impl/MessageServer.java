@@ -22,14 +22,14 @@ public class MessageServer implements IServer {
      */
     private ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
     private List<Socket> clients = new ArrayList<>();
+    private ServerSocket serverSocket;
     private Integer port;
     private Integer loginPort;
-    private String loginAddress;
-    private ServerSocket serverSocket;
+    private String address;
 
     public MessageServer(ServerRoom serverRoom){
         this.port = serverRoom.getMessagePort();
-        this.loginAddress = serverRoom.getLoginAddress();
+        this.address = serverRoom.getAddress();
         this.loginPort = serverRoom.getLoginPort();
     }
 
@@ -61,7 +61,7 @@ public class MessageServer implements IServer {
             while (true){
                 client = serverSocket.accept();
                 add(client);
-                cachedThreadPool.execute(new MessageChatter(client,loginAddress,loginPort,cachedThreadPool));
+                cachedThreadPool.execute(new MessageChatter(client,address,loginPort,cachedThreadPool));
             }
         }catch (SocketException ignored){
 //            System.out.println("关闭消息服务器");

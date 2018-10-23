@@ -1,5 +1,6 @@
 package app.mrquan.util;
 
+import app.mrquan.pojo.Function;
 import app.mrquan.pojo.Instruct;
 import app.mrquan.pojo.Message;
 import app.mrquan.pojo.User;
@@ -62,5 +63,26 @@ public class JSON {
         if (instruct.getInstruct()==null)
             return null;
         return new Gson().toJson(instruct,Instruct.class);
+    }
+
+    public static Function jsonToFunction(String json){
+        Function function = null;
+        try {
+            function = new Gson().fromJson(json,Function.class);
+        }catch (JsonSyntaxException ignored){
+        }
+        if (function==null)
+            return null;
+        if (function.getFunction()==null)
+            return null;
+        return function;
+    }
+
+    public static String functionToJson(Function function){
+        if (function==null)
+            return null;
+        if (function.getFunction()==null)
+            return null;
+        return new Gson().toJson(function,Function.class);
     }
 }
