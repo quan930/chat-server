@@ -18,10 +18,7 @@ public class AdminServiceImpl implements IAdminService {
         User user = JSON.jsonToUser(json);
         if (user==null){
             instruct.setInstruct("error");
-        }else {
-            /**
-             * 查询数据库 user
-             */
+        }else {//查询数据库 user
             User userDAO = DAOFactory.getIUserDAOInstance().selectByID(user.getId());
             if (userDAO==null){
                 instruct.setInstruct("user not exist");
@@ -48,12 +45,15 @@ public class AdminServiceImpl implements IAdminService {
             case "thread count":
                 //线程数量
                 stringBuilder = new StringBuilder();
-                stringBuilder.append("loginServer ThreadCount:");
+                stringBuilder.append("loginServer ThreadCount---");
                 stringBuilder.append(loginServer.getThreadCount());
-                stringBuilder.append("adminServer ThreadCount:");
+                stringBuilder.append(";");
+                stringBuilder.append("adminServer ThreadCount---");
                 stringBuilder.append(adminServer.getThreadCount());
-                stringBuilder.append("messageServer ThreadCount:");
+                stringBuilder.append(";");
+                stringBuilder.append("messageServer ThreadCount---");
                 stringBuilder.append(messageServer.getThreadCount());
+                stringBuilder.append(";");
                 function.setDescription(stringBuilder.toString());
                 break;
             case "online number":

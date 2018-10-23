@@ -19,4 +19,11 @@ public interface IMessageDAO {
      * @return 有数据返回List 没有返回null
      */
     List<Message> get(String id);
+
+    /**
+     * 保存数据
+     * @param path 文件路径
+     * @return 成功返回1 否则返回0
+     */
+    int save(String path);
 }

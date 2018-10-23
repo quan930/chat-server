@@ -15,19 +15,13 @@ public class LoginServiceImpl implements ILoginService {
         User user = JSON.jsonToUser(json);
         if (user==null){
             instruct.setInstruct("error");
-        }else {
-            /**
-             * 查询数据库 user
-             */
+        }else {//查询数据库 user
             User userDAO = DAOFactory.getIUserDAOInstance().selectByID(user.getId());
             if (userDAO==null){
                 instruct.setInstruct("user not exist");
             }else if (!user.getPassword().equals(userDAO.getPassword())){
                 instruct.setInstruct("password error");
-            }else {
-                /**
-                 * 查询令牌
-                 */
+            }else {//查询令牌
                 int m = DAOFactory.getITokenDAOInstance().add(user.getId());
                 if (m==0){
                     instruct.setInstruct("login duplicate");

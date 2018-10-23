@@ -8,19 +8,23 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 
 public class ServerRoom {
-    private Integer loginPort;
-    private Integer messagePort;
-    private Integer adminPort;
     private String address;
     private IServer loginServer;
     private IServer messageServer;
     private IServer adminServer;
+    private Integer loginPort;
+    private Integer messagePort;
+    private Integer adminPort;
+    private String tokenPath;
+    private String messagePath;
 
-    public ServerRoom(String address,Integer loginPort,Integer messagePort,Integer adminPort){
+    public ServerRoom(String address,Integer loginPort,Integer messagePort,Integer adminPort,String tokenPath,String messagePath){
         this.address = address;
         this.loginPort = loginPort;
         this.messagePort = messagePort;
         this.adminPort = adminPort;
+        this.tokenPath = tokenPath;
+        this.messagePath = messagePath;
     }
 
     public void start(){
@@ -58,5 +62,13 @@ public class ServerRoom {
 
     public String getAddress() {
         return address;
+    }
+
+    public String getTokenPath() {
+        return tokenPath;
+    }
+
+    public String getMessagePath() {
+        return messagePath;
     }
 }

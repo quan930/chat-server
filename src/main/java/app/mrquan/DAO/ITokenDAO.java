@@ -27,4 +27,11 @@ public interface ITokenDAO {
      * @return 返回令牌数量 没有返回0
      */
     int size();
+
+    /**
+     * 保存数据
+     * @param path 文件路径
+     * @return 成功返回1 否则返回0
+     */
+    int save(String path);
 }

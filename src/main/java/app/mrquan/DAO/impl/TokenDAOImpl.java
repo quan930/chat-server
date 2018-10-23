@@ -2,6 +2,12 @@ package app.mrquan.DAO.impl;
 
 import app.mrquan.DAO.ITokenDAO;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -39,4 +45,29 @@ public class TokenDAOImpl implements ITokenDAO {
     public int size() {
         return tokenQueue.size();
     }
+
+    @Override
+    public int save(String path) {
+        try {
+            File file = new File(path);
+            if (file.exists()){
+                file.delete();
+            }else {
+                file.createNewFile();
+            }
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+            List<String> strings = new LinkedList<>(tokenQueue);
+            for (String string : strings) {
+                out.writeObject(string);
+            }
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 0;
+        }
+        tokenQueue.clear();
+        return 1;
+    }
+
 }

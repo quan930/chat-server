@@ -1,5 +1,6 @@
 package app.mrquan.server.impl;
 
+import app.mrquan.factory.DAOFactory;
 import app.mrquan.server.chatter.LoginChatter;
 import app.mrquan.control.ServerRoom;
 import app.mrquan.server.IServer;
@@ -20,6 +21,7 @@ public class LoginServer implements IServer {
      */
     private ExecutorService fixedThreadPool = Executors.newFixedThreadPool(10);
     private List<Socket> clients = new ArrayList<>();
+    private String path;//文件位置
     private Integer port;//登录服务端口号
     private ServerSocket serverSocket;
     private Integer messagePort;
@@ -29,16 +31,15 @@ public class LoginServer implements IServer {
         this.port = serverRoom.getLoginPort();
         this.address = serverRoom.getAddress();
         this.messagePort = serverRoom.getMessagePort();
+        this.path = serverRoom.getTokenPath();
     }
 
     public void finish() {
         try {
-            serverSocket.close();
-            close();
-            fixedThreadPool.shutdown();
-            /**
-             * 处理缓存消息
-             */
+            serverSocket.close();//服务器关闭
+            close();//客户段套接字关闭
+            fixedThreadPool.shutdown();//线程池关闭
+            DAOFactory.getITokenDAOInstance().save(path);//处理缓存消息
             System.out.println("登陆服务器结束");
         } catch (IOException e) {
             e.printStackTrace();

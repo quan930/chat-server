@@ -22,6 +22,7 @@ public class MessageServer implements IServer {
      */
     private ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
     private List<Socket> clients = new ArrayList<>();
+    private String path;//文件位置
     private ServerSocket serverSocket;
     private Integer port;
     private Integer loginPort;
@@ -31,6 +32,7 @@ public class MessageServer implements IServer {
         this.port = serverRoom.getMessagePort();
         this.address = serverRoom.getAddress();
         this.loginPort = serverRoom.getLoginPort();
+        this.path = serverRoom.getMessagePath();
     }
 
     public void finish() {
@@ -38,9 +40,7 @@ public class MessageServer implements IServer {
             serverSocket.close();
             close();
             cachedThreadPool.shutdown();
-            /**
-             * 处理缓存消息
-             */
+            DAOFactory.getIMessageDAOInstance().save(path);//处理缓存消息
             System.out.println("消息服务器结束");
         } catch (IOException e) {
             e.printStackTrace();
