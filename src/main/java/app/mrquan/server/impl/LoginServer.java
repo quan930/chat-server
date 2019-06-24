@@ -39,8 +39,11 @@ public class LoginServer implements IServer {
             serverSocket.close();//服务器关闭
             close();//客户段套接字关闭
             fixedThreadPool.shutdown();//线程池关闭
-            DAOFactory.getITokenDAOInstance().save(path);//处理缓存消息
-            System.out.println("登陆服务器结束");
+            if (DAOFactory.getITokenDAOInstance().save(path)==1){//处理缓存消息
+                System.out.println("登陆服务器:保存数据成功");
+            }else {
+                System.out.println("登陆服务器:保存数据失败");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

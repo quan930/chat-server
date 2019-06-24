@@ -2,10 +2,7 @@ package app.mrquan.DAO.impl;
 
 import app.mrquan.DAO.ITokenDAO;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
@@ -68,6 +65,29 @@ public class TokenDAOImpl implements ITokenDAO {
         }
         tokenQueue.clear();
         return 1;
+    }
+
+    @Override
+    public void init(String path) {
+        File file = new File(path);
+        if (!file.exists())
+            return;
+        ObjectInputStream in = null;
+        try {
+            in = new ObjectInputStream(new FileInputStream(file));
+            while (true){
+                String token = (String) in.readObject();
+                if (token==null){
+                    break;
+                }
+                tokenQueue.add(token);
+            }
+        }catch (EOFException ignored){
+
+        }catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        file.delete();
     }
 
 }

@@ -34,4 +34,10 @@ public interface ITokenDAO {
      * @return 成功返回1 否则返回0
      */
     int save(String path);
+
+    /**
+     * 初始化
+     * @param path 文件路径
+     */
+    void init(String path);
 }

@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import java.util.Date;
+import java.util.List;
 
 public class JSON {
     public static String messageToJson(Message message){
@@ -84,5 +85,14 @@ public class JSON {
         if (function.getFunction()==null)
             return null;
         return new Gson().toJson(function,Function.class);
+    }
+
+    /**
+     * 用户列表转json
+     * @param list 用户列表
+     * @return
+     */
+    public static String userList(List<String> list){
+        return new Gson().toJson(list);
     }
 }

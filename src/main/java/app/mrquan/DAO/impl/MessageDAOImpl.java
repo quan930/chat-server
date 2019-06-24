@@ -3,10 +3,7 @@ package app.mrquan.DAO.impl;
 import app.mrquan.DAO.IMessageDAO;
 import app.mrquan.pojo.Message;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -36,12 +33,9 @@ public class MessageDAOImpl implements IMessageDAO {
                 file.createNewFile();
             }
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
-            for (Map.Entry<String, CopyOnWriteArrayList<Message>> entry : map.entrySet()) {
-                out.writeObject(entry.getKey());
-                if (entry.getValue()==null){
-                    out.writeObject(new CopyOnWriteArrayList<Message>());
-                }else {
-                    out.writeObject(entry.getValue());
+            for (CopyOnWriteArrayList<Message> value : map.values()) {
+                for (Message aValue : value) {
+                    out.writeObject(aValue);
                 }
             }
             out.flush();
@@ -52,5 +46,28 @@ public class MessageDAOImpl implements IMessageDAO {
         }
         map.clear();
         return 1;
+    }
+
+    @Override
+    public void init(String path) {
+        File file = new File(path);
+        if (!file.exists())
+            return;
+        ObjectInputStream in = null;
+        try {
+            in = new ObjectInputStream(new FileInputStream(file));
+            while (true){
+                Message message = (Message) in.readObject();
+                if (message==null){
+                    break;
+                }
+                put(message);
+            }
+        }catch (EOFException ignored){
+
+        }catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        file.delete();
     }
 }

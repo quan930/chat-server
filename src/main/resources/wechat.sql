@@ -13,4 +13,4 @@ insert into users values('0003','0003',null);
 insert into users values('0004','0004',null);
 
 
-truncate  table users;
+truncate table users;

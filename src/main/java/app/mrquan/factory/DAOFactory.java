@@ -7,6 +7,9 @@ import app.mrquan.DAO.impl.MessageDAOImpl;
 import app.mrquan.DAO.impl.TokenDAOImpl;
 import app.mrquan.DAO.impl.UserDAOImpl;
 
+/**
+ * DAO工厂类
+ */
 public class DAOFactory {
     static public ITokenDAO getITokenDAOInstance(){
         return new TokenDAOImpl();

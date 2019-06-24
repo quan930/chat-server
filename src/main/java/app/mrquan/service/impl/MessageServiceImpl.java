@@ -8,6 +8,7 @@ import app.mrquan.service.IMessageService;
 import app.mrquan.util.JSON;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MessageServiceImpl implements IMessageService {
@@ -72,5 +73,15 @@ public class MessageServiceImpl implements IMessageService {
             strings.add(string);
         }
         return strings;
+    }
+
+    @Override
+    public String getAllUsers() {
+        List<String> users = new ArrayList<>();
+        for (User user:DAOFactory.getIUserDAOInstance().selectAll()){
+            if (!user.getAdmin())
+                users.add(user.getId());
+        }
+        return JSON.userList(users);
     }
 }

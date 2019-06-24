@@ -40,8 +40,11 @@ public class MessageServer implements IServer {
             serverSocket.close();
             close();
             cachedThreadPool.shutdown();
-            DAOFactory.getIMessageDAOInstance().save(path);//处理缓存消息
-            System.out.println("消息服务器结束");
+            if (DAOFactory.getIMessageDAOInstance().save(path)==1){//处理缓存消息
+                System.out.println("消息服务器:保存数据成功");
+            }else {
+                System.out.println("消息服务器:保存数据失败");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

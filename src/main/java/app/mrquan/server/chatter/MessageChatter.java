@@ -37,13 +37,16 @@ public class MessageChatter implements Runnable{
                 closeAll();
                 return;
             }
-            writer.write(result);
+            writer.write(result);//发送登陆返回码
             writer.newLine();
             writer.flush();
             if (!result.contains("success")){
                 closeAll();
                 return;
             }
+            writer.write(ServiceFactory.getIMessageServiceInstance().getAllUsers());//发送登陆返回码
+            writer.newLine();
+            writer.flush();
             user = ServiceFactory.getIMessageServiceInstance().getUser(json);
         }catch (SocketException e){
 //            System.out.println("消息套节字关闭");

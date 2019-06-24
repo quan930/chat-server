@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IMessageService {
     /**
-     * 登陆 判断令牌 存在成功 否则 失败返回连接登陆服务器指令
+     * 登陆 判断令牌是否存在 否则 失败返回连接登陆服务器指令
      * @param json 用户对象
      * @param address 失败后要连接的 登陆服务器 ip地址
      * @param port 失败后要连接的 登陆服务器 端口号
@@ -32,4 +32,10 @@ public interface IMessageService {
      * @return 返回消息队列
      */
     List<String> getMessage(String user);
+
+    /**
+     * 获得全部用户
+     * @return list 用户列表 json
+     */
+    String getAllUsers();
 }

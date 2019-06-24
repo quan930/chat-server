@@ -1,11 +1,8 @@
 package app.mrquan.control;
 
-import app.mrquan.factory.Factory;
+import app.mrquan.factory.DAOFactory;
 import app.mrquan.factory.ServerFactory;
 import app.mrquan.server.IServer;
-
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.PriorityBlockingQueue;
 
 public class ServerRoom {
     private String address;
@@ -28,12 +25,20 @@ public class ServerRoom {
     }
 
     public void start(){
+        init();
+        System.out.println("数据初始化");
         loginServer = ServerFactory.getIServerInstance(ServerFactory.SERVER_LOGIN,this);
         new Thread(loginServer).start();
         messageServer = ServerFactory.getIServerInstance(ServerFactory.SERVER_MESSAGE,this);
         new Thread(messageServer).start();
         adminServer = ServerFactory.getIServerInstance(ServerFactory.SERVER_ADMIN,this);
         new Thread(adminServer).start();
+        System.out.println("启动");
+    }
+
+    private void init(){
+        DAOFactory.getITokenDAOInstance().init(tokenPath);
+        DAOFactory.getIMessageDAOInstance().init(messagePath);
     }
 
     public Integer getLoginPort() {
