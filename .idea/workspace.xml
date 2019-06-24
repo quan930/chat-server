@@ -6,61 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="79c4093e-6cf3-4f70-9628-662162ee911e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/IMessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/IMessageDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/ITokenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/ITokenDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/IUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/impl/MessageDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/impl/MessageDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/impl/TokenDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/impl/TokenDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/impl/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/DAO/impl/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/control/ServerRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/control/ServerRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/factory/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/factory/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/factory/Factory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/pojo/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/pojo/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/server/chatter/MessageChatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/server/chatter/MessageChatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/server/impl/LoginServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/server/impl/LoginServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/server/impl/MessageServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/server/impl/MessageServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/service/IMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/service/IMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/service/impl/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/service/impl/MessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/test/DAOTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/test/RoomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/test/RoomTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/test/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/mrquan/util/JSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/mrquan/util/JSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wechat.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wechat.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Demo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/FileCopy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GSON.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MAP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TimerTimer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/IMessageDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/IMessageDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/ITokenDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/ITokenDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/IUserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/IUserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/impl/MessageDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/impl/MessageDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/impl/TokenDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/impl/TokenDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/impl/UserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/DAO/impl/UserDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/control/ServerRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/control/ServerRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/factory/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/factory/DAOFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/factory/Factory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/pojo/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/pojo/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/server/chatter/MessageChatter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/server/chatter/MessageChatter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/server/impl/LoginServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/server/impl/LoginServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/server/impl/MessageServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/server/impl/MessageServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/service/IMessageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/service/IMessageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/service/impl/MessageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/service/impl/MessageServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/test/DAOTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/test/RoomTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/test/RoomTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/test/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/mrquan/util/JSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/mrquan/util/JSON.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/wechat.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/wechat.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Demo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/FileCopy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GSON.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/MAP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TimerTimer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TimerTimer.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -151,7 +96,7 @@
           <entry key="CLASS" value="5" />
           <entry key="Database Element" value="2" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="412" />
+          <entry key="JAVA" value="414" />
           <entry key="SQL" value="5" />
           <entry key="Scratch" value="1" />
           <entry key="XML" value="6" />
@@ -161,7 +106,7 @@
         <counts>
           <entry key="class" value="5" />
           <entry key="iml" value="1" />
-          <entry key="java" value="412" />
+          <entry key="java" value="414" />
           <entry key="sql" value="6" />
           <entry key="users" value="2" />
           <entry key="xml" value="6" />
@@ -175,11 +120,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/app/mrquan/control/ServerRoom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
+            <state relative-caret-position="-123">
               <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/mrquan/DAO/IMessageDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/mrquan/DAO/IUserDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -576,12 +542,12 @@
       <workItem from="1541688321375" duration="241000" />
       <workItem from="1542241664175" duration="720000" />
       <workItem from="1561364271774" duration="3486000" />
-      <workItem from="1561368463060" duration="724000" />
+      <workItem from="1561368463060" duration="880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94404000" />
+    <option name="totallyTimeSpent" value="94860000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,8 +561,8 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8579767" visible="true" weight="0.3390558" />
-      <window_info id="Structure" order="1" sideWeight="0.14202334" side_tool="true" visible="true" weight="0.3390558" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8689408" visible="true" weight="0.3390558" />
+      <window_info id="Structure" order="1" sideWeight="0.13105924" side_tool="true" visible="true" weight="0.3390558" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.33816424" side_tool="true" weight="0.28397712" />
@@ -604,14 +570,14 @@
       <window_info anchor="bottom" id="Thumbnails" order="1" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.49928468" visible="true" weight="0.38072288" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49928468" weight="0.38072288" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32891566" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32891566" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5007153" side_tool="true" weight="0.25180724" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32891566" />
       <window_info anchor="bottom" id="Spring" order="14" />
@@ -847,13 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/mrquan/DAO/IMessageDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/mrquan/pojo/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -861,16 +820,6 @@
           <folding>
             <element signature="e#582#583#0" expanded="true" />
             <element signature="e#610#611#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/mrquan/DAO/IUserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -954,8 +903,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/mrquan/control/ServerRoom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
+        <state relative-caret-position="-123">
           <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/mrquan/DAO/IMessageDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/mrquan/DAO/IUserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
